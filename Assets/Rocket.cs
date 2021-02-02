@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Rocket : MonoBehaviour
@@ -7,7 +8,8 @@ public class Rocket : MonoBehaviour
     AudioSource audioSource;
     [SerializeField]float rcsThrust =100f;
     [SerializeField] float mainThrust = 100f;
-
+    enum State {Alive,Dying,Transcending}
+    State state = State.Alive;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,24 +20,39 @@ public class Rocket : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Trust();
-        Rotate();
+        // todo some where stop sound while dead(bug)
+        if (state == State.Alive) {
+            Trust();
+            Rotate();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (state!=State.Alive) { return; }
         switch (collision.gameObject.tag) {
             case "Friendly":
-                
                 break;
             case"Finish":
-                print("hit finish");
-                SceneManager.LoadScene(1);
+                state = State.Transcending;
+                Invoke("LoadNextScene", 1.0f);//todo set parameter for wait time
                 break;
             default:
-                SceneManager.LoadScene(0);
+                state = State.Dying;
+                Invoke("LoadFristLevel",1.0f);//todo set parameter for wait time
                 break;
         }
+    }
+
+    private void LoadFristLevel()
+    {
+        SceneManager.LoadScene(0);
+        state = State.Alive;
+    }
+
+    private void LoadNextScene()
+    {
+        SceneManager.LoadScene(1);//todo allow to more than 2 levels
     }
 
     private void Trust()
