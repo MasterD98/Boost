@@ -289,8 +289,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1720743195921664309}
   - component: {fileID: 4881193328442179838}
-  - component: {fileID: 4881193328442179837}
   - component: {fileID: 4881193328442179836}
+  - component: {fileID: 1651376910}
   m_Layer: 0
   m_Name: Rocket Ship
   m_TagString: Friendly
@@ -332,7 +332,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 56
   m_CollisionDetection: 0
---- !u!82 &4881193328442179837
+--- !u!114 &4881193328442179836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720743195921664308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87afaaabb0f4b4a4d9e85d2ed1534d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rcsThrust: 250
+  mainThrust: 50
+  mainEngine: {fileID: 8300000, guid: 420588ce333418e41be9289544888d46, type: 3}
+  death: {fileID: 8300000, guid: 64fd788f5343d5145bee3942ed9990bc, type: 3}
+  success: {fileID: 8300000, guid: 80e1b24203a4453409fa82f4b4118ae8, type: 3}
+--- !u!82 &1651376910
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -342,7 +359,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b4198eb7c7c310b48929ff1281f5e3e1, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -428,20 +445,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4881193328442179836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1720743195921664308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87afaaabb0f4b4a4d9e85d2ed1534d2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rcsThrust: 250
-  mainThrust: 50
 --- !u!1 &1720743195934106680
 GameObject:
   m_ObjectHideFlags: 0
