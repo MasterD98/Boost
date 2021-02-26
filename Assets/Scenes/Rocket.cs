@@ -114,7 +114,7 @@ public class Rocket : MonoBehaviour
     {
         rigidBody.AddRelativeForce(Vector3.up * mainThrust*Time.deltaTime);
         if (!audioSource.isPlaying) { audioSource.PlayOneShot(mainEngineAudio); }
-        mainEngineParticles.Play();
+        if (!mainEngineParticles.isPlaying) { mainEngineParticles.Play(); }
     }
 
     private void ResponseToRotateInput()
